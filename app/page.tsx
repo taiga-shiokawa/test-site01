@@ -196,25 +196,91 @@ export default function Home() {
             </h2>
             <p>空き状況のご案内やデザイン相談もお気軽に。</p>
           </div>
-          <div className="footer-cta">
-            <h3>落ち着いたプライベート空間でお迎えします</h3>
-            <p>
-              LINE またはお電話でご予約ください。ご希望のイメージがあれば、画像をお送りいただくとスムーズです。
-            </p>
-            <div className="cta-row" style={{ justifyContent: "center" }}>
-              <a className="button primary" href="tel:+818012345678">
-                電話で予約する
-              </a>
-              <a
-                className="button ghost"
-                href="https://line.me/ti/p/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                LINEで問い合わせ
-              </a>
+          <div className="booking">
+            <div className="form-card">
+              <div className="panel-header" style={{ marginBottom: 10 }}>
+                <div className="section-title">
+                  <span className="dot" />
+                  <strong>仮予約フォーム</strong>
+                </div>
+                <span className="pill">UI only</span>
+              </div>
+              <p className="small-text" style={{ marginBottom: 12 }}>
+                送信ボタンはダミーです。入力の雰囲気を先に確認できます。
+              </p>
+              <form className="form-grid">
+                <label className="field">
+                  お名前
+                  <input type="text" name="name" placeholder="例）山田 花子" />
+                </label>
+                <label className="field">
+                  ご連絡先
+                  <input type="text" name="contact" placeholder="電話番号またはメールアドレス" />
+                  <span className="field-note">LINEをご希望の場合はIDやQR共有の旨をご記入ください</span>
+                </label>
+                <div className="field-row">
+                  <label className="field">
+                    希望日
+                    <input type="date" name="date" />
+                  </label>
+                  <label className="field">
+                    希望時間
+                    <input type="time" name="time" />
+                  </label>
+                </div>
+                <label className="field">
+                  メニュー
+                  <select name="menu" defaultValue="">
+                    <option value="" disabled>
+                      選択してください
+                    </option>
+                    {services.map((service) => (
+                      <option key={service.title} value={service.title}>
+                        {service.title}（{service.price}）
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className="field">
+                  デザインのご要望
+                  <textarea
+                    name="note"
+                    rows={3}
+                    placeholder="持ち込みデザインのテーマやカラー、オフの有無などをご記入ください"
+                  />
+                </label>
+                <button type="submit" className="button primary full">
+                  仮予約を送る
+                </button>
+              </form>
             </div>
-            <p className="small-text">当日は10分前のご来店をお願いしています。現金・クレジット対応。</p>
+            <div className="info-card">
+              <h3 style={{ marginBottom: 8 }}>落ち着いたプライベート空間でお迎えします</h3>
+              <p>
+                フォーム送信後、24時間以内に折り返しご連絡します。お急ぎの方はお電話・LINEがスムーズです。
+              </p>
+              <div className="cta-row" style={{ marginTop: 12 }}>
+                <a className="button ghost" href="tel:+818012345678">
+                  電話で予約する
+                </a>
+                <a className="button ghost" href="https://line.me/ti/p/" target="_blank" rel="noreferrer">
+                  LINEで問い合わせ
+                </a>
+              </div>
+              <div className="meta-row" style={{ marginTop: 16 }}>
+                <div className="meta-card">
+                  <span className="meta-label">Address</span>
+                  <span className="meta-value">恵比寿西 1-xx-xx / 完全予約制</span>
+                </div>
+                <div className="meta-card">
+                  <span className="meta-label">Payment</span>
+                  <span className="meta-value">現金・クレジット / 10分前のご来店を推奨</span>
+                </div>
+              </div>
+              <p className="small-text" style={{ marginTop: 10 }}>
+                キャンセル・時間変更は前日までにご連絡ください。遅刻の場合はメニュー変更のご相談をさせていただきます。
+              </p>
+            </div>
           </div>
         </section>
       </div>
